@@ -1,10 +1,15 @@
 Manifest-Version: 1.0
 Main-Class: rtfmyoumust.code.gallows.Main
-Class-Path: javafx-graphics-21-ea+5-mac.jar javafx-base-21-ea+5.jar form
- sfx-core-11.6.0.jar javafx-graphics-21-ea+5.jar javafx-controls-21-ea+5
- .jar javafx-fxml-21-ea+5.jar javafx-web-21-ea+5-mac.jar javafx-controls
- -21-ea+5-mac.jar controlsfx-11.1.2.jar ikonli-javafx-12.3.1.jar ikonli-
- core-12.3.1.jar javafx-media-21-ea+5-mac.jar javafx-media-21-ea+5.jar j
- avafx-base-21-ea+5-mac.jar javafx-web-21-ea+5.jar bootstrapfx-core-0.4.
- 0.jar javafx-fxml-21-ea+5-mac.jar validatorfx-0.4.0.jar
+Class-Path: commons-collections4-4.4.jar javafx-web-21-ea+5-mac.jar vali
+ datorfx-0.4.0.jar slf4j-api-1.7.32.jar javafx-base-21-ea+5-mac.jar java
+ fx-web-21-ea+5.jar ikonli-core-12.3.1.jar aether-api-1.0.0.v20140518.ja
+ r javafx-media-21-ea+5.jar ikonli-javafx-12.3.1.jar maven-shade-plugin-
+ 3.5.1.jar commons-io-2.13.0.jar plexus-utils-3.5.1.jar javafx-media-21-
+ ea+5-mac.jar asm-9.5.jar bootstrapfx-core-0.4.0.jar javafx-controls-21-
+ ea+5-mac.jar asm-tree-9.5.jar javafx-fxml-21-ea+5-mac.jar javafx-fxml-2
+ 1-ea+5.jar javafx-base-21-ea+5.jar maven-dependency-tree-3.2.1.jar java
+ fx-controls-21-ea+5.jar controlsfx-11.1.2.jar jdom2-2.0.6.1.jar aether-
+ util-1.0.0.v20140518.jar asm-commons-9.5.jar javafx-graphics-21-ea+5.ja
+ r javafx-graphics-21-ea+5-mac.jar formsfx-core-11.6.0.jar jdependency-2
+ .9.0.jar
 

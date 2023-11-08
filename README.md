@@ -5,7 +5,7 @@
 ---
 
 _**Hangman**_ is a word game where the player is given a word that he must guess using the letters of the Russian alphabet and the opportunity to make no more than six mistakes.\
-Repeated letters are not counted as a mistake.
+Repeated letters are not counted as a mistake.\
 - The game is made in **Java language** and **JavaFX tool** for creating cross-platform graphic applications.
 - I tried to implement an **MVC-pattern** that consists of three entities - a **MODEL** implemented by the **WordModel** class,\
 two controllers **MenuController** and **GameController**, and a **view** implemented by the **GallowsView** class.
@@ -18,8 +18,8 @@ The Model is a store of data and current state, and the View _"subscribes"_ to t
 ## Installation
 
 --- 
-- To start the game you need to run the JAR file with the following command from the root directory (no need to install the tool JavaFX):\
-`java -jar ./out/artifacts/Gallows_jar/Gallows.jar`
+- To start the game you need to run command:\
+`mvn javafx:run`
 
 
 ## Game Mechanics
@@ -37,8 +37,7 @@ You can also close the menu by pressing the **ESC button**.
 https://github.com/NiceBruce/GallowsGame/assets/23197323/7c1436c1-248e-4c04-9685-ed6a6d5fe3ef
 
 
-- Below is a video with a detailed description of the gameplay.\
-It is important to note that any click on the menu is accompanied by sound, any input of correct or incorrect letters, as well as winning or losing - are voiced.
+- Also below is a video showing detailed gameplay
 
 https://github.com/NiceBruce/GallowsGame/assets/23197323/5968130e-3abc-4548-ab61-89e5996518eb
 
