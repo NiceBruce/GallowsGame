@@ -8,12 +8,13 @@
 }
 
 #textField {
-    -fx-background-color: #2fa02f, #2f2d2f;
+    -fx-background-color: #2f2d2f;
+    -fx-border-color: white #2f2d2f #2f2d2f #2f2d2f;
     -fx-font-size: 30px;
     -fx-text-fill: #ffffff;
     -fx-display-caret: true;
     -fx-background-radius: 0;
-    -fx-background-insets: 0, 1 0 0 0 ;
+    /*-fx-background-insets: 0, 1 0 0 0;*/
     -fx-padding: 10;
     -fx-alignment: center;
 }

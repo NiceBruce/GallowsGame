@@ -33,20 +33,15 @@ public class GallowsView implements Observer {
     private Label score;
     @FXML
     TextField inputText;
-
     Timeline timeline;
-
     private final String GOOD_SOUND = "sound/8-bit-coin-fx_G_minor.wav";
     private final String BAD_SOUND = "sound/8-bit-wide-shot_E.wav";
     private final String WINNER_SOUND = "sound/8-bit-sawtooth_130bpm_D_major.wav";
     private final String LOOSER_SOUND = "sound/kl-peach-game-over-iii-142453.mp3";
     public final String MENU_SOUND = "sound/blipSelect.wav";
     public final String MENU_EXIT_SOUND = "sound/8-bit-spaceship-startup-102666.mp3";
-
     public MediaPlayer mediaPlayer;
-
     WordModelInterface wordModel = new WordModel();
-
     public GallowsView() {
         wordModel.registeredObserver(this);
     }
@@ -54,30 +49,32 @@ public class GallowsView implements Observer {
     public void playSound(String music) {
         Media sound = new Media(getClass().getResource(music).toExternalForm());
         this.mediaPlayer = new MediaPlayer(sound);
-        if(mediaPlayer.getStatus() != MediaPlayer.Status.PLAYING){
-            this.mediaPlayer.play();
-        }
+        this.mediaPlayer.play();
     }
 
     void displayUsefullLetters(List<Character> list) {
-
         if (list.size() > 0) {
             if (!wordModel.isRightLetter()) {
                 playSound(BAD_SOUND);
-                timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), evt -> targetWord.setStyle("-fx-effect: innershadow( gaussian, rgba(246,2,39,0.91), 98, 0, 0, 0 ); -fx-border-color: #ff0025;")),
-                        new KeyFrame(Duration.seconds( 0.5), evt -> targetWord.setStyle("-fx-effect: innershadow( gaussian, rgba( 40, 40, 40, 0.5 ), 10, 0, 5, 5 );")));
+                timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), evt ->
+                        targetWord.setStyle("-fx-effect: innershadow( gaussian, rgba(246,2,39,0.91), 98, 0, 0, 0 ); -fx-border-color: #ff0025;")),
+                        new KeyFrame(Duration.seconds(0.1), evt -> inputText.setStyle("-fx-border-color: #ff0025 #2f2d2f #2f2d2f #2f2d2f;")),
+                        new KeyFrame(Duration.seconds( 0.5), evt -> targetWord.setStyle("-fx-effect: innershadow( gaussian, rgba( 40, 40, 40, 0.5 ), 10, 0, 5, 5 );")),
+                        new KeyFrame(Duration.seconds(0.5), evt -> inputText.setStyle("-fx-border-color: white #2f2d2f #2f2d2f #2f2d2f;")));
                 timeline.setCycleCount(2);
                 timeline.play();
             } else {
                 playSound(GOOD_SOUND);
                 timeline = new Timeline(new KeyFrame(Duration.seconds(1), evt -> targetWord.setStyle("-fx-effect: innershadow( gaussian, rgb(18,246,2), 98, 0, 0, 0 ); -fx-border-color: #2fff00;")),
-                        new KeyFrame(Duration.seconds( 2), evt -> targetWord.setStyle("-fx-effect: innershadow( gaussian, rgba( 40, 40, 40, 0.5 ), 10, 0, 5, 5 );")));
+                        new KeyFrame(Duration.seconds(1), evt -> inputText.setStyle("-fx-border-color: #2fa02f #2f2d2f #2f2d2f #2f2d2f;")),
+                        new KeyFrame(Duration.seconds( 2), evt -> targetWord.setStyle("-fx-effect: innershadow( gaussian, rgba( 40, 40, 40, 0.5 ), 10, 0, 5, 5 );")),
+                        new KeyFrame(Duration.seconds( 2), evt -> inputText.setStyle("-fx-border-color: white #2f2d2f #2f2d2f #2f2d2f;")));
                 timeline.setCycleCount(1);
                 timeline.play();
             }
         }
 
-        this.usefullLetters.setText("USED LETTERS: " + list.toString());
+        this.usefullLetters.setText("USED LETTERS: " + list);
     }
 
     void printMaskedTargetWord(String targetWord) {
@@ -151,7 +148,6 @@ public class GallowsView implements Observer {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @Override
