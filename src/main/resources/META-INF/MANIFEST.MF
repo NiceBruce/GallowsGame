@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Main-Class: rtfmyoumust.code.gallows.Main
+Class-Path: javafx-graphics-21-ea+5-mac.jar javafx-base-21-ea+5.jar form
+ sfx-core-11.6.0.jar javafx-graphics-21-ea+5.jar javafx-controls-21-ea+5
+ .jar javafx-fxml-21-ea+5.jar javafx-web-21-ea+5-mac.jar javafx-controls
+ -21-ea+5-mac.jar controlsfx-11.1.2.jar ikonli-javafx-12.3.1.jar ikonli-
+ core-12.3.1.jar javafx-media-21-ea+5-mac.jar javafx-media-21-ea+5.jar j
+ avafx-base-21-ea+5-mac.jar javafx-web-21-ea+5.jar bootstrapfx-core-0.4.
+ 0.jar javafx-fxml-21-ea+5-mac.jar validatorfx-0.4.0.jar
+

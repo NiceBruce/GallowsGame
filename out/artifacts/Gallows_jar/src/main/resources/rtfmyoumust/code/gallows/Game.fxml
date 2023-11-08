@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="gameBoard" fx:id="gameBoard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#openMenu" prefHeight="735.0" prefWidth="860.0" style="-fx-background-color: rgb(40,40,40);" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rtfmyoumust.code.gallows.GameController">
+   <children>
+      <TextField id="textField" fx:id="inputText" layoutX="384.0" layoutY="134.0" onAction="#setLetter" onKeyPressed="#clear" prefHeight="80.0" prefWidth="80.0" promptText="A" stylesheets="@style.css">
+         <font>
+            <Font name="Chalkduster" size="14.0" />
+         </font></TextField>
+      <Label id="targetWord" fx:id="targetWord" layoutX="63.0" layoutY="66.0" prefHeight="59.0" prefWidth="735.0" stylesheets="@style.css" text="********" textAlignment="CENTER">
+         <font>
+            <Font name="Chalkduster" size="14.0" />
+         </font>
+      </Label>
+      <Label id="lives" fx:id="score" layoutX="3.0" layoutY="2.0" prefHeight="55.0" prefWidth="273.0" text="♥♥♥♥♥♥" textFill="#ff0909">
+         <font>
+            <Font name="System Bold" size="47.0" />
+         </font>
+      </Label>
+      <Label id="gameMessage" fx:id="gameMessage" layoutX="17.0" layoutY="221.0" prefHeight="18.0" prefWidth="827.0" stylesheets="@style.css" text="gameMessage" textAlignment="JUSTIFY" textFill="WHITE">
+         <font>
+            <Font name="Chalkduster" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="pic" fitHeight="500.0" fitWidth="500.0" layoutX="180.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true" />
+      <Button id="button_menu" fx:id="button_restart" layoutX="250.0" layoutY="130.0" mnemonicParsing="false" onAction="#restartGame" prefHeight="80.0" prefWidth="350.0" stylesheets="@style.css" text="RESTART" visible="false">
+         <font>
+            <Font name="Chalkduster" size="14.0" />
+         </font></Button>
+      <Label id="usefullLetters" fx:id="usefullLetters" alignment="CENTER_RIGHT" layoutX="6.0" layoutY="14.0" prefHeight="33.0" prefWidth="852.0" stylesheets="@style.css" text="USED LETTERS" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
