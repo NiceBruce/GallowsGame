@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'Pixel Digivolve Cyrillic';
+    src: local('Pixel Digivolve Cyrillic'), url('font/3997-font.otf') format("opentype");
+}
+
+#textField, #targetWord, #gameMessage, #usefullLetters, #button_start, #button_restart, #button_exit {
+    -fx-font-family: "Pixel Digivolve Cyrillic", sans-serif;
+}
+
+#textField {
+    -fx-background-color: #2fa02f, #2f2d2f;
+    -fx-font-size: 30px;
+    -fx-text-fill: #ffffff;
+    -fx-display-caret: true;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 1 0 0 0 ;
+    -fx-padding: 10;
+    -fx-alignment: center;
+}
+
+#targetWord {
+    -fx-background-color: rgb(40, 40, 40);
+    -fx-font-size: 30px;
+    -fx-text-fill: #ffffff;
+    -fx-display-caret: true;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 20 0 0 0 ;
+    -fx-padding: 10;
+    -fx-alignment: center;
+}
+
+#gameMessage {
+    -fx-font-size: 28px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+
+#usefullLetters {
+    -fx-font-size: 27px;
+}
+
+#button_start, #button_restart {
+    -fx-background-color: #24a0ed;
+    -fx-font-size: 30px;
+    -fx-text-fill: White;
+    -fx-border-radius: 5;
+    -fx-border-width: 2;
+}
+
+#button_exit {
+    -fx-background-color: #24a0ed;
+    -fx-font-size: 30px;
+    -fx-text-fill: White;
+    -fx-border-radius: 5;
+    -fx-border-width: 2;
+}
+
+#button_exit:hover {
+    -fx-background-color: red;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+
+    transition: -fx-background-color 0.5s ease,
+    -fx-scale-x 0.5s ease,
+    -fx-scale-y 0.5s ease;
+}
+
+#button_start:hover, #button_restart:hover {
+    -fx-background-color: #4cd201;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+
+    transition: -fx-background-color 0.5s ease,
+    -fx-scale-x 0.5s ease,
+    -fx-scale-y 0.5s ease;
+}
