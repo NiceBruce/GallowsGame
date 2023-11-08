@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Launcher extends Application {
@@ -25,7 +24,7 @@ public class Launcher extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) throws FileNotFoundException, IOException  {
+    public static void main(String[] args) {
         launch();
     }
 }

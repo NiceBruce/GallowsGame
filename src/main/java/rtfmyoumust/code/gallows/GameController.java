@@ -8,29 +8,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class GameController extends GallowsView implements ControllerInterface {
-
-    @FXML
-    AnchorPane game;
+public class GameController extends GallowsView {
 
     @FXML
     Button button_restart;
-
     @FXML
     Label targetWord;
-
-    @FXML
-    Button button_start;
-    @FXML
-    Button button_exit;
-
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -40,7 +30,6 @@ public class GameController extends GallowsView implements ControllerInterface {
         wordModel.initialize();
     }
 
-    @Override
     public void setLetter() {
         wordModel.openLetters(getInputText());
     }
@@ -50,7 +39,6 @@ public class GameController extends GallowsView implements ControllerInterface {
     }
 
     @FXML
-    @Override
     public void restartGame(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Game.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -59,16 +47,14 @@ public class GameController extends GallowsView implements ControllerInterface {
         stage.show();
     }
 
-    @Override
     public void start() {
 
     }
 
-    @Override
     public void openMenu(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ESCAPE) {
                 try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Menu.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
                     scene = new Scene(fxmlLoader.load());
                     MenuController controller = fxmlLoader.getController();
                     controller.setPrescene(((Node)keyEvent.getSource()).getScene());
@@ -89,6 +75,8 @@ public class GameController extends GallowsView implements ControllerInterface {
         stage = new Stage();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.getIcons().add(new Image(Launcher.class.getResourceAsStream("img/icon.png")));
+        stage.setTitle("Gallows");
         stage.show();
     }
 }

@@ -18,7 +18,6 @@ public class MenuController extends GallowsView{
     private Stage stage;
     private Scene scene;
     private Parent root;
-
     private Scene preScene;
     @FXML
     Button button_start;
@@ -48,6 +47,7 @@ public class MenuController extends GallowsView{
         playSound(MENU_SOUND);
     }
 
+    // esc key closure
     public void closeMenu(KeyEvent event) {
         if (event.getCode() == KeyCode.ESCAPE) {
             if (this.preScene != null) {
@@ -65,6 +65,7 @@ public class MenuController extends GallowsView{
     public void resumeGame(ActionEvent event) {
         if (this.preScene != null) {
             stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            // save the previous scene so you can return to it
             stage.setScene(preScene);
             stage.show();
         }
