@@ -1,4 +1,4 @@
-![logo.png](..%2F..%2F..%2F..%2F..%2FDesktop%2Flogo.png)
+<img width="1070" alt="logo" src="https://github.com/NiceBruce/GallowsGame/assets/23197323/a2c2ce6a-413c-4e0e-b4c8-7af483880645">
 
 ## Short description
 
@@ -28,11 +28,17 @@ The Model is a store of data and current state, and the View _"subscribes"_ to t
 
 - At startup, we are greeted by a menu that prompts us to **start a new game** or **exit**.
 
+  https://github.com/NiceBruce/GallowsGame/assets/23197323/e808b56d-458c-4713-9349-54292ce9d75f
+
 - Further, if you start a new game - the menu can be called by the **ESC button**,\
 where we will see a new item - _**"RESUME GAME"**_ (it returns the player to the current game).\
 You can also close the menu by pressing the **ESC button**.
 
+https://github.com/NiceBruce/GallowsGame/assets/23197323/7c1436c1-248e-4c04-9685-ed6a6d5fe3ef
+
+
 - Also below is a video showing detailed gameplay
 
+https://github.com/NiceBruce/GallowsGame/assets/23197323/5968130e-3abc-4548-ab61-89e5996518eb
 
-
+**ENJOY THE GAME**☺️
