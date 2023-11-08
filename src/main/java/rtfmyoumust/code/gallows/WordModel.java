@@ -10,28 +10,22 @@ import java.util.Scanner;
 
 public class WordModel implements WordModelInterface {
     private List<Observer> gameObservers = new ArrayList<>();
-
     private List<String> dictionary = new ArrayList<>();
     private ArrayList<Character> inputLetters = new ArrayList<>();
-
     private boolean gameLost = false;
     private boolean isRightLetter;
     private boolean duplicate;
-
     private String targetWord;
     private StringBuilder maskedTargetWord;
     private int mistakeCount = 0;
     private final int END_GAME_VALUE = 6;
-
     private String gameMessage;
     private final String POSITIVE_GAME_RESULT = "YOU WIN!";
     private final String NEGATIVE_GAME_RESULT = "YOU LOSE!";
     private final String NEGATIVE_LETTER = "NICE TRY, BUT NO";
     private final String DUPLICATE_LETTER = "THAT LETTER WAS ALREADY THERE, WRITE ANOTHER ONE!";
     private final String GAME_IS_ON = "OK! WHAT'S THE NEXT LETTER?";
-
     private Random random = new Random();
-
     private final String DICTIONARY_FILE_NAME = "/dict.txt";
 
     @Override
@@ -41,6 +35,7 @@ public class WordModel implements WordModelInterface {
         notifyObservers();
     }
 
+    // this method is needed to solve the problem of loading a file from a resources folder
     public static Path getPathFile(String fileName) {
         return Paths.get("src", "main", "resources", "dict.txt")
                 .toAbsolutePath().normalize();
@@ -89,7 +84,10 @@ public class WordModel implements WordModelInterface {
             duplicate = true;
             setGameMessage(DUPLICATE_LETTER);
         }
+
         isRightLetter = (targetWord.indexOf(symbol) != -1);
+
+        //I don't count duplicate letter errors.
         return (targetWord.indexOf(symbol) != -1) || duplicate;
     }
 
