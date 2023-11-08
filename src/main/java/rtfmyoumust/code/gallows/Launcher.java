@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class App extends Application {
+public class Launcher extends Application {
     Parent root;
     FXMLLoader loader;
     @Override
@@ -18,7 +18,7 @@ public class App extends Application {
         loader = new FXMLLoader(getClass().getResource("menu.fxml"));
         root = loader.load();
         Scene scene = new Scene(root);
-        stage.getIcons().add(new Image(App.class.getResourceAsStream("img/icon.png")));
+        stage.getIcons().add(new Image(Launcher.class.getResourceAsStream("img/icon.png")));
         stage.setTitle("Gallows");
         stage.setScene(scene);
         stage.setResizable(false);
