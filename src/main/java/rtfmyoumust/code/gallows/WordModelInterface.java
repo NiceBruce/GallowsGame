@@ -12,10 +12,8 @@ public interface WordModelInterface {
     boolean isWordSolved();
     int getMistakeCount();
     boolean isGameLost();
-
     String getTargetWord();
-    boolean isRightLetter();
-
+    boolean isContainsLetter();
     void registeredObserver(Observer o);
     void notifyObservers();
 }

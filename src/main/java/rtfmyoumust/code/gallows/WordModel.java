@@ -13,8 +13,7 @@ public class WordModel implements WordModelInterface {
     private List<String> dictionary = new ArrayList<>();
     private ArrayList<Character> inputLetters = new ArrayList<>();
     private boolean gameLost = false;
-    private boolean isRightLetter;
-    private boolean duplicate;
+    private boolean containsLetter;
     private String targetWord;
     private StringBuilder maskedTargetWord;
     private int mistakeCount = 0;
@@ -25,24 +24,20 @@ public class WordModel implements WordModelInterface {
     private final String NEGATIVE_LETTER = "NICE TRY, BUT NO";
     private final String DUPLICATE_LETTER = "THAT LETTER WAS ALREADY THERE, WRITE ANOTHER ONE!";
     private final String GAME_IS_ON = "OK! WHAT'S THE NEXT LETTER?";
+    private final String INVALID_INPUT_SYMBOL = "YOU MUST ENTER A LETTER OF THE RUSSIAN ALPHABET!";
+    private final String DICTIONARY_FILE_NAME = "dict.txt";
     private Random random = new Random();
-    private final String DICTIONARY_FILE_NAME = "/dict.txt";
 
     @Override
-    public void initialize() throws Exception {
+    public void initialize() {
         loadDictionary(DICTIONARY_FILE_NAME);
         this.setTargetWord(dictionary.get(random.nextInt(dictionary.size() - 1)));
         notifyObservers();
     }
 
-    // this method is needed to solve the problem of loading a file from a resources folder
-    public static Path getPathFile(String fileName) {
-        return Paths.get("src", "main", "resources", "dict.txt")
-                .toAbsolutePath().normalize();
-    }
-
-    public void loadDictionary(String fileName) throws Exception {
-        Path path = getPathFile(fileName);
+    public void loadDictionary(String fileName) {
+        ClassLoader classLoader = WordModel.class.getClassLoader();
+        Path path = Paths.get(classLoader.getResource(fileName).getPath());
         try (Scanner scanner = new Scanner(path))  {
             while(scanner.hasNextLine()){
                 this.dictionary.add(scanner.nextLine());
@@ -71,40 +66,58 @@ public class WordModel implements WordModelInterface {
         return mistakeCount;
     }
 
-    public boolean isRightLetter() {
-        return isRightLetter;
+    public boolean isContainsLetter() {
+        return containsLetter;
     }
 
     public boolean checkLetter(char symbol) {
+        return isContainsLetter(symbol) || !isValidCharacter(symbol) || isDuplicate(symbol);
+    }
 
-        if (!inputLetters.contains(symbol)) {
-            duplicate = false;
-            inputLetters.add(symbol);
-        } else {
-            duplicate = true;
-            setGameMessage(DUPLICATE_LETTER);
+    public boolean isValidCharacter(char c) {
+        boolean res = String.valueOf(c).matches("[А-Яа-я]");
+        if (!res) setGameMessage(INVALID_INPUT_SYMBOL);
+        return res;
+    }
+
+    public boolean isDuplicate(char c) {
+        boolean res = this.inputLetters.contains(c);
+        if (res) setGameMessage(DUPLICATE_LETTER);
+        return res;
+    }
+
+    public boolean isContainsLetter(char c) {
+        return containsLetter = targetWord.indexOf(c) != -1;
+    }
+
+    public void addToInputLetters(char c) {
+        if (!isDuplicate(c) && isValidCharacter(c)) {
+            this.inputLetters.add(c);
         }
-
-        isRightLetter = (targetWord.indexOf(symbol) != -1);
-
-        //I don't count duplicate letter errors.
-        return (targetWord.indexOf(symbol) != -1) || duplicate;
     }
 
     public void openLetters(char symbol) {
-        setGameMessage(GAME_IS_ON);
 
-        if (checkLetter(symbol)) {
-            for (int i = 0; i < maskedTargetWord.length(); i++) {
-                if (targetWord.charAt(i) == symbol) {
-                    maskedTargetWord.setCharAt(i, symbol);
+        if (!isDuplicate(symbol)) {
+            if (checkLetter(symbol)) {
+                for (int i = 0; i < maskedTargetWord.length(); i++) {
+                    if (targetWord.charAt(i) == symbol) {
+                        setGameMessage(GAME_IS_ON);
+                        maskedTargetWord.setCharAt(i, symbol);
+                    }
                 }
+            } else {
+                mistakeCount++;
+                setGameMessage(NEGATIVE_LETTER);
             }
-        } else {
-            setGameMessage(NEGATIVE_LETTER);
-            mistakeCount++;
         }
 
+        addToInputLetters(symbol);
+        gameAnalize();
+        notifyObservers();
+    }
+
+    public void gameAnalize() {
         if (mistakeCount == END_GAME_VALUE) {
             gameLost = true;
             setGameMessage(NEGATIVE_GAME_RESULT);
@@ -113,8 +126,6 @@ public class WordModel implements WordModelInterface {
         if (isWordSolved()) {
             setGameMessage(POSITIVE_GAME_RESULT);
         }
-
-        notifyObservers();
     }
 
     public boolean isWordSolved() {

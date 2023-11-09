@@ -54,7 +54,7 @@ public class GallowsView implements Observer {
 
     void displayUsefullLetters(List<Character> list) {
         if (list.size() > 0) {
-            if (!wordModel.isRightLetter()) {
+            if (!wordModel.isContainsLetter()) {
                 playSound(BAD_SOUND);
                 timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), evt ->
                         targetWord.setStyle("-fx-effect: innershadow( gaussian, rgba(246,2,39,0.91), 98, 0, 0, 0 ); -fx-border-color: #ff0025;")),

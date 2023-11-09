@@ -47,10 +47,6 @@ public class GameController extends GallowsView {
         stage.show();
     }
 
-    public void start() {
-
-    }
-
     public void openMenu(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ESCAPE) {
                 try {
