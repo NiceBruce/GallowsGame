@@ -34,11 +34,11 @@ The Model is a store of data and current state, and the View _"subscribes"_ to t
 where we will see a new item - _**"RESUME GAME"**_ (it returns the player to the current game).\
 You can also close the menu by pressing the **ESC button**.
 
-https://github.com/NiceBruce/GallowsGame/assets/23197323/7c1436c1-248e-4c04-9685-ed6a6d5fe3ef
+https://github.com/NiceBruce/GallowsGame/assets/23197323/74cdcd0d-6326-488c-bf50-625e643e3c51
 
 
 - Also below is a video showing detailed gameplay
 
-https://github.com/NiceBruce/GallowsGame/assets/23197323/5968130e-3abc-4548-ab61-89e5996518eb
+https://github.com/NiceBruce/GallowsGame/assets/23197323/51f0eb4e-bdfd-43bf-910d-68b9f2d8a804
 
 **ENJOY THE GAME**☺️
