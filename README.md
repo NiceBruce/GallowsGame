@@ -41,4 +41,3 @@ https://github.com/NiceBruce/GallowsGame/assets/23197323/74cdcd0d-6326-488c-bf50
 
 https://github.com/NiceBruce/GallowsGame/assets/23197323/51f0eb4e-bdfd-43bf-910d-68b9f2d8a804
 
-**ENJOY THE GAME**☺️
